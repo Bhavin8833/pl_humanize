@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route, BrowserRouter } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import Home from "./pages/Home";
 import Humanize from "./pages/Humanize";
@@ -19,16 +19,12 @@ function ScrollToTop() {
 }
 
 const App = () => {
-  const isElectron = window.navigator.userAgent.includes("Electron");
-  const Router = isElectron ? HashRouter : BrowserRouter;
-  const routerProps = isElectron ? {} : { basename: "/pl_humanize" };
-
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <Router {...routerProps}>
+        <HashRouter>
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -38,7 +34,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </Router>
+        </HashRouter>
       </TooltipProvider>
     </QueryClientProvider>
   );
