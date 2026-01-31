@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">PL Humanize</string>
-    <string name="title_activity_main">PL Humanize</string>
-    <string name="package_name">com.plhumanize.app</string>
-    <string name="custom_url_scheme">com.plhumanize.app</string>
-</resources>

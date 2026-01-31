@@ -70,7 +70,7 @@ export default defineConfig(({ mode }) => ({
   // We will set VITE_ELECTRON_BUILD env var in the script if needed, or rely on mode.
   // Actually, for Electron production build, we usually want relative paths.
   // We can default to existing unless we detect Electron.
-  base: process.env.ELECTRON_BUILD ? './' : "/pl-humanizer/",
+  base: process.env.ELECTRON_BUILD ? './' : "/pl_humanize/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

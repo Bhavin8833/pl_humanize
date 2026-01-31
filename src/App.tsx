@@ -21,7 +21,7 @@ function ScrollToTop() {
 const App = () => {
   const isElectron = window.navigator.userAgent.includes("Electron");
   const Router = isElectron ? HashRouter : BrowserRouter;
-  const routerProps = isElectron ? {} : { basename: "/pl-humanizer" };
+  const routerProps = isElectron ? {} : { basename: "/pl_humanize" };
 
   return (
     <QueryClientProvider client={queryClient}>

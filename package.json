@@ -15,7 +15,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://Bhavin8833.github.io/pl-humanizer",
+  "homepage": "https://Bhavin8833.github.io/pl_humanize",
   "dependencies": {
     "@capacitor/android": "^8.0.1",
     "@capacitor/cli": "^8.0.1",
