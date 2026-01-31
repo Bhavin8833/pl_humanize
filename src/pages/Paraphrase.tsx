@@ -7,6 +7,8 @@ import { Copy, Trash2, RefreshCcw, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
+import { API_BASE_URL } from "@/config";
+
 export default function Paraphrase() {
   const [inputText, setInputText] = useState("");
   const [outputText, setOutputText] = useState("");
@@ -25,7 +27,7 @@ export default function Paraphrase() {
     setIsProcessing(true);
 
     try {
-      const response = await fetch("/api/paraphrase", {
+      const response = await fetch(`${API_BASE_URL}/api/paraphrase`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: inputText }),

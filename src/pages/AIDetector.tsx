@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 import { CircularGauge } from "@/components/ui/CircularGauge";
+import { API_BASE_URL } from "@/config";
 
 interface SentenceBreakdown {
   text: string;
@@ -48,7 +49,7 @@ export default function AIDetector() {
     setIsProcessing(true);
 
     try {
-      const response = await fetch("/api/ai-detector", {
+      const response = await fetch(`${API_BASE_URL}/api/ai-detector`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: inputText }),
