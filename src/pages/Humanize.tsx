@@ -784,7 +784,7 @@ export default function Humanize() {
                     variant="gradient"
                     onClick={() => handleHumanize("humanize")}
                     disabled={isProcessing || isSmartHumanizing || !inputText.trim()}
-                    className="h-10 sm:h-9 w-full sm:w-auto px-6"
+                    className="h-10 sm:h-9 w-full sm:w-auto px-6 shadow-md hover:shadow-lg transition-all duration-200"
                   >
                     {isProcessing && processingAction === "humanize" ? (
                       <>
@@ -795,6 +795,24 @@ export default function Humanize() {
                       <>
                         <Wand2 className="h-4 w-4 mr-2" />
                         Humanize
+                      </>
+                    )}
+                  </Button>
+
+                  <Button
+                    onClick={handleSmartHumanize}
+                    disabled={isProcessing || isSmartHumanizing || !inputText.trim()}
+                    className="h-10 sm:h-9 w-full sm:w-auto px-6 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white shadow-md hover:shadow-lg transition-all duration-200 border-0"
+                  >
+                    {isSmartHumanizing ? (
+                      <>
+                        <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                        Smart Mode...
+                      </>
+                    ) : (
+                      <>
+                        <Zap className="h-4 w-4 mr-2 fill-current" />
+                        Smart Humanize
                       </>
                     )}
                   </Button>
