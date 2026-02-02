@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { Copy, Trash2, Wand2, Loader2, RefreshCw, Sparkles, Zap, Upload, History as HistoryIcon } from "lucide-react";
+import { Copy, Trash2, Wand2, Loader2, RefreshCw, Sparkles, Zap, Upload, History as HistoryIcon, ClipboardList } from "lucide-react";
 import { HistorySidebar, HistoryItem } from "@/components/HistorySidebar";
 import { toast } from "sonner";
 import { Switch } from "@/components/ui/switch";
@@ -560,12 +560,12 @@ export default function Humanize() {
                       variant="ghost"
                       size="sm"
                       onClick={() => setHistoryOpen(true)}
-                      className="text-xs"
+                      className="text-xs h-8 px-2"
                     >
-                      <HistoryIcon className="h-3 w-3 mr-1" />
-                      History
+                      <HistoryIcon className="h-3.5 w-3.5 mr-1" />
+                      <span className="hidden sm:inline">History</span>
                     </Button>
-                    <div className="w-px h-4 bg-border mx-1 self-center" />
+                    <div className="w-px h-4 bg-border mx-0.5 self-center" />
                     <input
                       type="file"
                       id="file-upload"
@@ -577,28 +577,28 @@ export default function Humanize() {
                       variant="outline"
                       size="sm"
                       onClick={() => document.getElementById("file-upload")?.click()}
-                      className="text-xs"
+                      className="text-xs h-8 px-2"
                     >
-                      <Upload className="h-3 w-3 mr-1" />
-                      Upload
+                      <Upload className="h-3.5 w-3.5 mr-1" />
+                      <span className="hidden sm:inline">Upload</span>
                     </Button>
                     <Button
                       variant="outline"
                       size="sm"
                       onClick={handlePaste}
-                      className="text-xs"
+                      className="text-xs h-8 px-2"
                     >
-                      <Copy className="h-3 w-3 mr-1" />
-                      Paste
+                      <ClipboardList className="h-3.5 w-3.5 mr-1" />
+                      <span className="hidden sm:inline">Paste</span>
                     </Button>
                     <Button
                       variant="outline"
                       size="sm"
                       onClick={handleTrySample}
-                      className="text-xs"
+                      className="text-xs h-8 px-2"
                     >
-                      <Sparkles className="h-3 w-3 mr-1" />
-                      Try Sample
+                      <Sparkles className="h-3.5 w-3.5 mr-1" />
+                      <span className="hidden sm:inline">Try Sample</span>
                     </Button>
                   </div>
                 </div>
@@ -649,11 +649,13 @@ export default function Humanize() {
               <div className="p-4 md:p-6 bg-muted/20">
                 <div className="flex items-center justify-between mb-3 h-9">
                   <span className="text-sm font-medium text-foreground">Humanized Output</span>
-                  {result && (
-                    <div className={`px-2 py-1 rounded-full border text-xs font-medium ${getScoreBg(result.ai_score)} ${getScoreColor(result.ai_score)}`}>
-                      {result.ai_score.toFixed(1)}% AI
-                    </div>
-                  )}
+                  <div className="flex items-center gap-2">
+                    {result && (
+                      <div className={`px-2 py-0.5 rounded-full border text-[10px] font-medium ${getScoreBg(result.ai_score)} ${getScoreColor(result.ai_score)}`}>
+                        {result.ai_score.toFixed(1)}% AI
+                      </div>
+                    )}
+                  </div>
                 </div>
                 <textarea
                   value={outputText}
