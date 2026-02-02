@@ -553,9 +553,9 @@ export default function Humanize() {
             <div className="grid lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-border">
               {/* Input Panel */}
               <div className="p-4 md:p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm font-medium text-foreground">AI Text Input</span>
-                  <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-3 gap-2">
+                  <span className="text-sm font-medium text-foreground whitespace-nowrap">AI Text Input</span>
+                  <div className="flex gap-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0 no-scrollbar">
                     <Button
                       variant="ghost"
                       size="sm"
@@ -647,8 +647,8 @@ export default function Humanize() {
 
               {/* Output Panel */}
               <div className="p-4 md:p-6 bg-muted/20">
-                <div className="flex items-center justify-between mb-3 h-9">
-                  <span className="text-sm font-medium text-foreground">Humanized Output</span>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-3 h-auto sm:h-9 gap-2">
+                  <span className="text-sm font-medium text-foreground whitespace-nowrap">Humanized Output</span>
                   <div className="flex items-center gap-2">
                     {result && (
                       <div className={`px-2 py-0.5 rounded-full border text-[10px] font-medium ${getScoreBg(result.ai_score)} ${getScoreColor(result.ai_score)}`}>
